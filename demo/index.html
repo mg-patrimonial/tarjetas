@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarjeta Virtual | MG</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0F1F3D, #243B55);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.tarjeta {
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.encabezado {
+    background: #0F1F3D;
+    color: white;
+    padding: 35px 20px;
+    border-bottom: 4px solid #C7A34A;
+}
+
+.foto {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #C7A34A;
+    background: #243B55;
+    margin: auto;
+    display: grid;
+    place-items: center;
+    font-size: 38px;
+    color: #C7A34A;
+    overflow: hidden;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h1 {
+    font-size: 25px;
+    margin: 20px 0 8px;
+}
+
+.cargo {
+    color: #C7A34A;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.contenido {
+    padding: 25px;
+}
+
+.descripcion {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.boton {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 12px 0;
+    border: 0;
+    border-radius: 10px;
+    background: #0F1F3D;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.boton:hover {
+    background: #243B55;
+    transform: translateY(-2px);
+}
+
+.whatsapp {
+    background: #16834A;
+}
+
+.dorado {
+    background: #C7A34A;
+    color: #0F1F3D;
+}
+
+.pie {
+    padding: 18px;
+    font-size: 11px;
+    color: #777;
+    border-top: 1px solid #eee;
+    letter-spacing: 1px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="tarjeta">
+
+    <div class="encabezado">
+
+        <div class="foto">MG</div>
+
+        <h1>Nombre del profesional</h1>
+
+        <div class="cargo">
+            Cargo | Empresa
+        </div>
+
+    </div>
+
+    <div class="contenido">
+
+        <p class="descripcion">
+            Soluciones profesionales diseñadas
+            para tus necesidades.
+        </p>
+
+        <button class="boton whatsapp"
+            onclick="contactoDemo()">
+            WhatsApp
+        </button>
+
+        <button class="boton"
+            onclick="contactoDemo()">
+            Llamar
+        </button>
+
+        <button class="boton"
+            onclick="contactoDemo()">
+            Correo electrónico
+        </button>
+
+        <button class="boton"
+            onclick="contactoDemo()">
+            LinkedIn
+        </button>
+
+        <button class="boton dorado"
+            onclick="guardarContacto()">
+            Guardar contacto
+        </button>
+
+        <button class="boton"
+            onclick="compartirTarjeta()">
+            Compartir tarjeta
+        </button>
+
+    </div>
+
+    <div class="pie">
+        MG PATRIMONIAL | TARJETAS DIGITALES
+    </div>
+
+</div>
+
+<script>
+
+function contactoDemo() {
+    alert("Contacto de demostración. Próximamente disponible.");
+}
+
+function guardarContacto() {
+
+    const vcard = [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        "N:Profesional;Nombre;;;",
+        "FN:Nombre del profesional",
+        "ORG:Empresa",
+        "TITLE:Cargo",
+        "END:VCARD"
+    ].join("\r\n");
+
+    const archivo = new Blob(
+        [vcard],
+        {type: "text/vcard;charset=utf-8"}
+    );
+
+    const url = URL.createObjectURL(archivo);
+    const enlace = document.createElement("a");
+
+    enlace.href = url;
+    enlace.download = "contacto.vcf";
+    enlace.click();
+
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+async function compartirTarjeta() {
+
+    try {
+        if (navigator.share) {
+            await navigator.share({
+                title: "Tarjeta virtual",
+                text: "Te comparto mi tarjeta de presentación",
+                url: window.location.href
+            });
+        } else {
+            await navigator.clipboard.writeText(
+                window.location.href
+            );
+            alert("Enlace copiado correctamente");
+        }
+    } catch (error) {
+        if (error.name !== "AbortError") {
+            prompt("Copia el enlace:", window.location.href);
+        }
+    }
+}
+
+</script>
+
+</body>
+</html>
