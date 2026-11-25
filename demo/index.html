@@ -4,13 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarjeta Virtual | MG</title>
-
+<title>Martín García | Patrimonial</title>
 <style>
 * {
     box-sizing: border-box;
 }
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -21,7 +19,6 @@ body {
     align-items: center;
     padding: 20px;
 }
-
 .tarjeta {
     width: 100%;
     max-width: 400px;
@@ -31,56 +28,61 @@ body {
     text-align: center;
     box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 }
-
 .encabezado {
     background: #0F1F3D;
     color: white;
-    padding: 35px 20px;
+    padding: 30px 20px;
     border-bottom: 4px solid #C7A34A;
 }
-
+.logo {
+    width: 110px;
+    max-height: 85px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
 .foto {
-    width: 120px;
-    height: 120px;
+    width: 135px;
+    height: 135px;
     border-radius: 50%;
     border: 3px solid #C7A34A;
-    background: #243B55;
     margin: auto;
-    display: grid;
-    place-items: center;
-    font-size: 38px;
-    color: #C7A34A;
     overflow: hidden;
 }
-
 .foto img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 h1 {
-    font-size: 25px;
+    font-size: 27px;
     margin: 20px 0 8px;
 }
-
 .cargo {
     color: #C7A34A;
     font-size: 15px;
     letter-spacing: 1px;
 }
-
+.empresa {
+    font-size: 13px;
+    margin-top: 10px;
+    color: #ffffff;
+}
 .contenido {
     padding: 25px;
 }
-
 .descripcion {
     color: #555;
     font-size: 15px;
     line-height: 1.6;
     margin-bottom: 25px;
 }
-
+.servicios {
+    color: #0F1F3D;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
 .boton {
     display: block;
     width: 100%;
@@ -96,23 +98,25 @@ h1 {
     cursor: pointer;
     transition: 0.2s;
 }
-
 .boton:hover {
-    background: #243B55;
+    opacity: 0.9;
     transform: translateY(-2px);
 }
-
 .whatsapp {
     background: #16834A;
 }
-
+.linkedin {
+    background: #0A66C2;
+}
+.instagram {
+    background: linear-gradient(45deg, #833AB4, #C13584, #E1306C);
+}
 .dorado {
     background: #C7A34A;
     color: #0F1F3D;
 }
-
 .pie {
-    padding: 18px;
+    padding: 20px;
     font-size: 11px;
     color: #777;
     border-top: 1px solid #eee;
@@ -127,12 +131,22 @@ h1 {
 
     <div class="encabezado">
 
-        <div class="foto">MG</div>
+        <img class="logo" src="Logo.png" alt="MG Patrimonial">
 
-        <h1>Nombre del profesional</h1>
+        <div class="foto">
+            <img src="perfil.png"
+                 alt="Martín García"
+                 onerror="this.onerror=null;this.src='Retrato profesional con gafas y suéter azul.png';">
+        </div>
+
+        <h1>Martín García</h1>
 
         <div class="cargo">
-            Cargo | Empresa
+            Asesor Patrimonial
+        </div>
+
+        <div class="empresa">
+            Seguros Monterrey New York Life
         </div>
 
     </div>
@@ -140,63 +154,75 @@ h1 {
     <div class="contenido">
 
         <p class="descripcion">
-            Soluciones profesionales diseñadas
-            para tus necesidades.
+            Decisiones inteligentes, patrimonio sólido
+            y futuro con confianza.
         </p>
 
-        <button class="boton whatsapp"
-            onclick="contactoDemo()">
+        <div class="servicios">
+            Protección familiar · Ahorro<br>
+            Planeación para el retiro · Educación<br>
+            Gastos médicos mayores
+        </div>
+
+        <a class="boton whatsapp"
+           href="https://wa.me/525536655073?text=Hola%2C%20Mart%C3%ADn.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20tus%20servicios."
+           target="_blank" rel="noopener noreferrer">
             WhatsApp
-        </button>
+        </a>
 
-        <button class="boton"
-            onclick="contactoDemo()">
+        <a class="boton" href="tel:+525536655073">
             Llamar
-        </button>
+        </a>
 
-        <button class="boton"
-            onclick="contactoDemo()">
+        <a class="boton"
+           href="mailto:actuario.martin@ciencias.unam.mx">
             Correo electrónico
-        </button>
+        </a>
 
-        <button class="boton"
-            onclick="contactoDemo()">
+        <a class="boton linkedin"
+           href="https://www.linkedin.com/in/martin-garcia-patrimonial/"
+           target="_blank" rel="noopener noreferrer">
             LinkedIn
-        </button>
+        </a>
+
+        <a class="boton instagram"
+           href="https://www.instagram.com/martingarciapatrimonial/"
+           target="_blank" rel="noopener noreferrer">
+            Instagram
+        </a>
 
         <button class="boton dorado"
-            onclick="guardarContacto()">
+                onclick="guardarContacto()">
             Guardar contacto
         </button>
 
         <button class="boton"
-            onclick="compartirTarjeta()">
+                onclick="compartirTarjeta()">
             Compartir tarjeta
         </button>
 
     </div>
 
     <div class="pie">
-        MG PATRIMONIAL | TARJETAS DIGITALES
+        MARTÍN GARCÍA | PATRIMONIAL
     </div>
 
 </div>
 
 <script>
 
-function contactoDemo() {
-    alert("Contacto de demostración. Próximamente disponible.");
-}
-
 function guardarContacto() {
 
     const vcard = [
         "BEGIN:VCARD",
         "VERSION:3.0",
-        "N:Profesional;Nombre;;;",
-        "FN:Nombre del profesional",
-        "ORG:Empresa",
-        "TITLE:Cargo",
+        "N:García;Martín;;;",
+        "FN:Martín García",
+        "ORG:Seguros Monterrey New York Life",
+        "TITLE:Asesor Patrimonial",
+        "TEL;TYPE=CELL:+525536655073",
+        "EMAIL:actuario.martin@ciencias.unam.mx",
+        "URL:" + window.location.href,
         "END:VCARD"
     ].join("\r\n");
 
@@ -209,7 +235,7 @@ function guardarContacto() {
     const enlace = document.createElement("a");
 
     enlace.href = url;
-    enlace.download = "contacto.vcf";
+    enlace.download = "Martin_Garcia.vcf";
     enlace.click();
 
     setTimeout(() => URL.revokeObjectURL(url), 1000);
@@ -218,22 +244,30 @@ function guardarContacto() {
 async function compartirTarjeta() {
 
     try {
+
         if (navigator.share) {
+
             await navigator.share({
-                title: "Tarjeta virtual",
-                text: "Te comparto mi tarjeta de presentación",
+                title: "Martín García | Patrimonial",
+                text: "Te comparto mi tarjeta de presentación.",
                 url: window.location.href
             });
+
         } else {
+
             await navigator.clipboard.writeText(
                 window.location.href
             );
+
             alert("Enlace copiado correctamente");
         }
+
     } catch (error) {
+
         if (error.name !== "AbortError") {
             prompt("Copia el enlace:", window.location.href);
         }
+
     }
 }
 
